@@ -1,4 +1,13 @@
-const AddBudgetItem = () => {
+import { useState } from "react";
+import { BudgetItem } from "../types/BudgetItem";
+
+type PropType = {
+	onClick: (budget: BudgetItem) => void;
+}
+
+const AddBudgetItem = ({ onClick }: PropType) => {
+	const [description, setDescription] = useState("");
+	const [amount, setAmount] = useState(0)
 	return (
 		<div className="add-budget-item">
 			<h6>Add Budget Entry</h6>
@@ -6,14 +15,23 @@ const AddBudgetItem = () => {
 
 			<label className="form-label">Budget Description</label>
 			<div className="col-md-12 mb-4">
-				<input className="form-contorl" type="text" placeholder="e.g. Groceries"/>
+				<input
+					className="form-contorl"
+					type="text"
+					placeholder="e.g. Groceries"
+					onChange={(e) => setDescription(e.target.value)}
+				/>
 			</div>
 
 			<label className="form-label">Amount</label>
 			<div className="col-md-12 mb-4">
-				<input className="form-contorl" type="text" />
+				<input
+					className="form-contorl"
+					type="text"
+					onChange={(e) => setAmount(parseInt(e.target.value, 10))}
+				/>
 			</div>
-			<button className="btn btn-secondary">Add Budget Entry</button>
+			<button className="btn btn-secondary" onClick={() => onClick({description, amount})}>Add Budget Entry</button>
 		</div>
 	);
 }

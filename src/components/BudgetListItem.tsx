@@ -1,12 +1,18 @@
-const BudgetListItem = () => {
+import { BudgetItem } from "../types/BudgetItem";
+
+type PropType = {
+	budgetItem: BudgetItem
+}
+
+const BudgetListItem = ({ budgetItem }: PropType) => {
 	return (
 		<div className="budget-item">
 			<div className="budget-expense">
-				<p>100€</p>
+				<p>{budgetItem.amount}</p>
 				<p>-50€</p>
 			</div>
 			<div>
-				<p>Groceries</p>
+				<p>{budgetItem.description}</p>
 				<p>50€ remaining</p>
 			</div>
 			<div className="expand-expense">

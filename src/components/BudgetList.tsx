@@ -1,11 +1,16 @@
 import BudgetListItem from "./BudgetListItem";
+import { BudgetItem } from "../types/BudgetItem";
 
-const BudgetList = () => {
+type PropTypes = {
+	budgetItems: BudgetItem[]
+}
+
+const BudgetList = ({ budgetItems }: PropTypes) => {
 	return (
 		<div className="budget-list mt-4">
-			<BudgetListItem />
-			<BudgetListItem />
-			<BudgetListItem />
+			{ budgetItems && budgetItems.map((item) => {
+				return (<BudgetListItem budgetItem={item} />)
+			})}
 		</div>
 	);
 }
