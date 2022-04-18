@@ -1,4 +1,4 @@
-import { BudgetItem } from "../types/BudgetItem";
+import { BudgetItem } from "../types/types";
 
 type propType = {
 	budget: number;

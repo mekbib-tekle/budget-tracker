@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BudgetItem } from "../types/BudgetItem";
-import ExpenseList from "./ExpenseList";
+import { BudgetItem } from "../../types/types";
+import ExpenseList from "../expense/ExpenseList";
 
 type PropType = {
 	budgetItem: BudgetItem

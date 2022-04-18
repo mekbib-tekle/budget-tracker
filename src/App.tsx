@@ -3,10 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import AddTotalBudget from './components/AddTotalBudget';
 import AddBudgetItem from './components/AddBudgetItem';
+import BudgetList from "./components/budget-list/BudgetList";
 import Summary from './components/Summary';
-import BudgetList from "./components/BudgetList";
-import { BudgetItem, Expense } from "./types/BudgetItem";
-import { ExpenseContext } from "./components/ExpenseContext";
+import { BudgetItem, Expense } from "./types/types";
+import { ExpenseContext } from "./components/expense/ExpenseContext";
 
 function App() {
   const [budget, setBudget] = useState(0);

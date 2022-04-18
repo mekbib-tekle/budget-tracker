@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { BudgetItem, Expense } from "../types/BudgetItem";
+import { BudgetItem, Expense } from "../../types/types";
 
 type ExpenseContextType = {
   budgetItems: BudgetItem[];

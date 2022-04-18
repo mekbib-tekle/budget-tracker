@@ -1,4 +1,4 @@
-import { BudgetItem } from "../types/BudgetItem";
+import { BudgetItem } from "../../types/types";
 import AddExpense from "./AddExpense";
 import ExpenseItem from "./ExpenseItem";
 
@@ -12,7 +12,7 @@ const ExpenseList = ({budgetItem}: PropType) => {
 	return (
 		<div className="expense-list">
       {expenseItems && expenseItems.map((item) => {
-        return (<ExpenseItem expenseItem={item}/>);
+        return (<ExpenseItem expenseItem={item} key={item.expense}/>);
       })}
       <AddExpense budgetItemId={budgetItem.uuid}/>
     </div>

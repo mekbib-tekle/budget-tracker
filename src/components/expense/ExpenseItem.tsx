@@ -1,4 +1,4 @@
-import { Expense } from "../types/BudgetItem";
+import { Expense } from "../../types/types";
 
 type PropType = {
 	expenseItem: Expense;

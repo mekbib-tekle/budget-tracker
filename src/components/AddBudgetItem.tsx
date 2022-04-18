@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { v1 as uuidv1 } from "uuid";
-import { BudgetItem } from "../types/BudgetItem";
+import { BudgetItem } from "../types/types";
 
 type PropType = {
 	onClick: (budget: BudgetItem) => void;

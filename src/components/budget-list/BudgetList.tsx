@@ -1,5 +1,5 @@
 import BudgetListItem from "./BudgetListItem";
-import { BudgetItem } from "../types/BudgetItem";
+import { BudgetItem } from "../../types/types";
 
 type PropTypes = {
 	budgetItems: BudgetItem[];
