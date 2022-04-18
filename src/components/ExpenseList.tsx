@@ -1,12 +1,20 @@
+import { BudgetItem } from "../types/BudgetItem";
 import AddExpense from "./AddExpense";
 import ExpenseItem from "./ExpenseItem";
 
-const ExpenseList = () => {
+type PropType = {
+  budgetItem: BudgetItem;
+}
+
+const ExpenseList = ({budgetItem}: PropType) => {
+  const expenseItems = budgetItem.expenses;
+
 	return (
-		<div>
-      Expense List
-      <ExpenseItem />
-      <AddExpense />
+		<div className="expense-list">
+      {expenseItems && expenseItems.map((item) => {
+        return (<ExpenseItem expenseItem={item}/>);
+      })}
+      <AddExpense budgetItemId={budgetItem.uuid}/>
     </div>
 	);
 }

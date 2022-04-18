@@ -17,8 +17,16 @@ function App() {
     setBudgetItems(prevItems => [...prevItems, item]);
   };
 
-  const addExpense = (expense: Expense) => {
-    console.log({ expense });
+  const addExpense = (expense: Expense, budgetItemId: string) => {
+    const budgetItem = budgetItems.find((item) => item.uuid === budgetItemId);
+    if (!budgetItem || !budgetItem.expenses) {
+      return;
+    }
+
+    budgetItem.expenses.push(expense);
+
+    const filteredList = budgetItems.filter((item) => item.uuid !== budgetItemId);
+    setBudgetItems([...filteredList, budgetItem]);
   };
 
   return (
@@ -33,7 +41,7 @@ function App() {
             <AddBudgetItem onClick={handleAddBugetItem}/>
           </div>
           <div className="col-lg-6">
-            <Summary budget={budget}/>
+            <Summary budget={budget} budgetItems={budgetItems}/>
             <ExpenseContext.Provider value={{addExpense, budgetItems}}>
               <BudgetList budgetItems={budgetItems} />
             </ExpenseContext.Provider>

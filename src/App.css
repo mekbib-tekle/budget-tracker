@@ -43,7 +43,12 @@
   cursor: pointer;
 }
 
-.add-expense {
+.expense-list {
+  width: 80%;
+  margin: auto;
+}
+
+.add-expense, .expense-item {
   display: flex;
   justify-content: space-between;
 }

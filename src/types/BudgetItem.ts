@@ -4,7 +4,8 @@ export type Expense = {
 }
 
 export type BudgetItem = {
+  uuid: string,
   description: string;
   amount: number;
-  expenses?: Expense[];
+  expenses: Expense[];
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v1 as uuidv1 } from "uuid";
 import { BudgetItem } from "../types/BudgetItem";
 
 type PropType = {
@@ -7,7 +8,8 @@ type PropType = {
 
 const AddBudgetItem = ({ onClick }: PropType) => {
 	const [description, setDescription] = useState("");
-	const [amount, setAmount] = useState(0)
+	const [amount, setAmount] = useState(0);
+
 	return (
 		<div className="add-budget-item">
 			<h6>Add Budget Entry</h6>
@@ -31,7 +33,12 @@ const AddBudgetItem = ({ onClick }: PropType) => {
 					onChange={(e) => setAmount(parseInt(e.target.value, 10))}
 				/>
 			</div>
-			<button className="btn btn-secondary" onClick={() => onClick({description, amount})}>Add Budget Entry</button>
+			<button
+				className="btn btn-secondary"
+				onClick={() => onClick({description, amount, uuid: uuidv1(), expenses: []})}
+			>
+				Add Budget Entry
+			</button>
 		</div>
 	);
 }
