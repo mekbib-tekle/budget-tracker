@@ -20,7 +20,7 @@ const BudgetListItem = ({ budgetItem,  }: PropType) => {
 		<div className="budget-item-wrapper">
 			<div className="budget-item">
 				<div className="budget-expense">
-					<p>{budgetItem.amount}€</p>
+					<p className="text-success">{budgetItem.amount}€</p>
 					<p className="text-warning">{totalExpense}€ spent</p>
 				</div>
 				<div>

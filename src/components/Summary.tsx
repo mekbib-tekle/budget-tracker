@@ -19,20 +19,21 @@ const Summary = ({ budget, budgetItems }: propType) => {
 
 	return (
 		<div className="summary-wrapper">
-			<h6>Summary</h6>
 			<div className="summary-boxes">
 				<div className="total-budget box">
-					<p>Budget</p>
-					<p>{budget}</p>
+					<h5>Budget</h5>
+					<p className="text-success">{budget}</p>
 				</div>
 				<div className="expense box">
-					<p>Expense</p>
-					<p>{expenses}</p>
+					<h5>Expense</h5>
+					<p className="text-warning">{expenses}</p>
 				</div>
 				
 				<div className="remaining box">
-					<p>Remaining</p>
-					<p>{remaining}</p>
+					<h5>Remaining</h5>
+					{remaining < 0 ? 
+						(<p className="text-danger">{Math.abs(remaining)}€ over</p>) : 
+						(<p className="text-info">{remaining}€</p>)}
 				</div>
 			</div>
 		</div>
