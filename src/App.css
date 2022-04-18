@@ -20,7 +20,7 @@
 .summary-boxes {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
 }
 
 .summary-boxes .box {
@@ -41,4 +41,9 @@
 .expand-expense {
   align-self: center;
   cursor: pointer;
+}
+
+.add-expense {
+  display: flex;
+  justify-content: space-between;
 }

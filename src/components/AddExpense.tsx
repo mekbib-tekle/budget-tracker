@@ -1,6 +1,31 @@
+import React, { useContext, useState } from "react";
+import { ExpenseContext } from "./ExpenseContext";
+
 const AddExpense = () => {
+
+  const { addExpense } = useContext(ExpenseContext);
+	const [expense, setExpense] = useState("");
+	const [amount, setAmount] = useState(0);
+
 	return (
-		<div>Add Expense</div>
+		<div className="add-expense d-flex">
+			<input
+				type="text"
+				placeholder="Expense"
+				onChange={(e) => setExpense(e.target.value) }
+			/>
+			<input
+				type="text"
+				placeholder="Amount"
+				onChange={(e) => setAmount(parseInt(e.target.value, 10)) }
+			/>
+			<button 
+				onClick={() => addExpense({amount, expense}) }
+				className="btn btn-outline-primary"
+			>
+					Add Expense
+			</button>
+		</div>
 	);
 }
 

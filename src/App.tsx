@@ -5,7 +5,8 @@ import AddTotalBudget from './components/AddTotalBudget';
 import AddBudgetItem from './components/AddBudgetItem';
 import Summary from './components/Summary';
 import BudgetList from "./components/BudgetList";
-import { BudgetItem } from "./types/BudgetItem";
+import { BudgetItem, Expense } from "./types/BudgetItem";
+import { ExpenseContext } from "./components/ExpenseContext";
 
 function App() {
   const [budget, setBudget] = useState(0);
@@ -14,7 +15,11 @@ function App() {
 
   const handleAddBugetItem = (item: BudgetItem) => {
     setBudgetItems(prevItems => [...prevItems, item]);
-  }
+  };
+
+  const addExpense = (expense: Expense) => {
+    console.log({ expense });
+  };
 
   return (
     <div className="w-100 p-4 row d-flex justify-content-center">
@@ -29,7 +34,9 @@ function App() {
           </div>
           <div className="col-lg-6">
             <Summary budget={budget}/>
-            <BudgetList budgetItems={budgetItems}/>
+            <ExpenseContext.Provider value={{addExpense, budgetItems}}>
+              <BudgetList budgetItems={budgetItems} />
+            </ExpenseContext.Provider>
           </div>
         </div>
       </div>
