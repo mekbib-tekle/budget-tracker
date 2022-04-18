@@ -4,6 +4,7 @@ import './App.css';
 import AddTotalBudget from './components/AddTotalBudget';
 import AddBudgetItem from './components/AddBudgetItem';
 import Summary from './components/Summary';
+import BudgetList from "./components/BudgetList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           </div>
           <div className="col-lg-6">
             <Summary />
+            <BudgetList />
           </div>
         </div>
       </div>
