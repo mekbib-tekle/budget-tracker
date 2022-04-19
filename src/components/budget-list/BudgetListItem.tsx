@@ -3,10 +3,11 @@ import { BudgetItem } from "../../types/types";
 import ExpenseList from "../expense/ExpenseList";
 
 type PropType = {
-	budgetItem: BudgetItem
+	budgetItem: BudgetItem;
+  deleteBudgetItem: (uuid: string) => void;
 }
 
-const BudgetListItem: React.FC<PropType> = ({ budgetItem,  }) => {
+const BudgetListItem: React.FC<PropType> = ({ budgetItem, deleteBudgetItem }) => {
 
 	const [expand, setExpand] = useState(false);
 
@@ -29,8 +30,15 @@ const BudgetListItem: React.FC<PropType> = ({ budgetItem,  }) => {
 						(<p className="text-danger">{Math.abs(remaining)}€ over</p>) : 
 						(<p className="text-info">{remaining}€ remaining</p>)}
 				</div>
-				<div className="expand-expense" onClick={() => setExpand(!expand)}>
-					Expenses {expand ? <span>&#9650;</span> : <span>&#9660;</span>}
+				<div className="expand-expense">
+				  <button
+            className="btn btn-link p-4"
+            onClick={() => deleteBudgetItem(budgetItem.uuid)}>
+              Delete
+          </button>
+          <button className="btn btn-link p-4"  onClick={() => setExpand(!expand)}>
+            Expenses {expand ? <span>&#9650;</span> : <span>&#9660;</span>}
+          </button>
 				</div>
 			</div>
 			{expand && (
