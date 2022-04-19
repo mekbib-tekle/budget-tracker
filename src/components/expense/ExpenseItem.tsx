@@ -15,3 +15,4 @@ const ExpenseItem: React.FC<PropType>  = ({expenseItem}) => {
 };
 
 export default ExpenseItem;
+

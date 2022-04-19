@@ -14,7 +14,7 @@ const ExpenseList: React.FC<PropType>  = ({budgetItem}) => {
       {expenseItems && expenseItems.map((item) => {
         return (<ExpenseItem expenseItem={item} key={item.expense}/>);
       })}
-      <AddExpense budgetItemId={budgetItem.uuid}/>
+      <AddExpense budgetItemId={budgetItem.uuid} />
     </div>
 	);
 }
