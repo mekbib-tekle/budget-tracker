@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { v1 as uuidv1 } from "uuid";
 import { ExpenseContext } from "./ExpenseContext";
 
 type PropType = {
@@ -23,7 +24,7 @@ const AddExpense: React.FC<PropType> = ({budgetItemId}) => {
 				onChange={(e) => setAmount(parseInt(e.target.value, 10)) }
 			/>
 			<button 
-				onClick={() => addExpense({amount, expense}, budgetItemId) }
+				onClick={() => addExpense({amount, expense, uuid: uuidv1()}, budgetItemId) }
 				className="btn btn-outline-primary"
 			>
 					Add Expense

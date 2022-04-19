@@ -1,4 +1,5 @@
 export type Expense = {
+  uuid: string;
   amount: number;
   expense: string;
 }

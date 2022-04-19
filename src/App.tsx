@@ -31,6 +31,17 @@ function App() {
     });
   }
 
+  const deleteExpense = (expenseId: string, budgetItemId: string) => {
+    setBudgetItems(prevItems => {
+      return prevItems.map((item) => {
+        if (item.uuid === budgetItemId) {
+          item.expenses = item.expenses.filter(expense => expense.uuid !== expenseId);
+        }
+        return item;
+      })
+    });
+  }
+
   return (
     <div className="w-100 p-4 row d-flex justify-content-center">
       <header className="App-header">
@@ -43,7 +54,7 @@ function App() {
           </div>
           <div className="col-lg-6">
             <Summary budgetItems={budgetItems}/>
-            <ExpenseContext.Provider value={{addExpense, budgetItems}}>
+            <ExpenseContext.Provider value={{addExpense, deleteExpense, budgetItems}}>
               <BudgetList budgetItems={budgetItems} deleteBudgetItem={deleteBudgetItem}/>
             </ExpenseContext.Provider>
           </div>

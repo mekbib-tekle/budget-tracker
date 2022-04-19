@@ -32,7 +32,7 @@ const BudgetListItem: React.FC<PropType> = ({ budgetItem, deleteBudgetItem }) =>
 				</div>
 				<div className="expand-expense">
 				  <button
-            className="btn btn-link p-4"
+            className="btn btn-link p-4 text-danger"
             onClick={() => deleteBudgetItem(budgetItem.uuid)}>
               Delete
           </button>

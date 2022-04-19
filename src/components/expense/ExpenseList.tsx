@@ -12,7 +12,9 @@ const ExpenseList: React.FC<PropType>  = ({budgetItem}) => {
 	return (
 		<div className="expense-list">
       {expenseItems && expenseItems.map((item) => {
-        return (<ExpenseItem expenseItem={item} key={item.expense}/>);
+        return (
+          <ExpenseItem expenseItem={item} key={item.expense} budgetItemId={budgetItem.uuid}/>
+        );
       })}
       <AddExpense budgetItemId={budgetItem.uuid} />
     </div>
