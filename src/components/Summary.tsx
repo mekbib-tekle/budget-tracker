@@ -1,20 +1,26 @@
 import { BudgetItem } from "../types/types";
 
 type propType = {
-	budget: number;
 	budgetItems: BudgetItem[]
 }
 
 const getExpenses = (budgetItems: BudgetItem[]): number => {
-	return budgetItems.reduce((total, current)=> {
+	return budgetItems.reduce((total, current) => {
 		return total + current.expenses.reduce((prev, exp) => {
 			return prev + exp.amount;
 		}, 0);
 	}, 0);
 }
 
-const Summary = ({ budget, budgetItems }: propType) => {
+const getTotalBudget = (budgetItems: BudgetItem[]): number => {
+	return budgetItems.reduce((total, current) => {
+		return total + current.amount;
+	}, 0);
+}
+
+const Summary = ({ budgetItems }: propType) => {
 	const expenses = getExpenses(budgetItems);
+	const budget = getTotalBudget(budgetItems);
 	const remaining = budget-expenses;
 
 	return (
@@ -22,11 +28,11 @@ const Summary = ({ budget, budgetItems }: propType) => {
 			<div className="summary-boxes">
 				<div className="total-budget box">
 					<h5>Budget</h5>
-					<p className="text-success">{budget}</p>
+					<p className="text-success">{budget}€</p>
 				</div>
 				<div className="expense box">
 					<h5>Expense</h5>
-					<p className="text-warning">{expenses}</p>
+					<p className="text-warning">{expenses}€</p>
 				</div>
 				
 				<div className="remaining box">

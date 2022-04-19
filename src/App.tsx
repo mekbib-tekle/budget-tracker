@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import AddTotalBudget from './components/AddTotalBudget';
 import AddBudgetItem from './components/AddBudgetItem';
 import BudgetList from "./components/budget-list/BudgetList";
 import Summary from './components/Summary';
@@ -9,10 +8,8 @@ import { BudgetItem, Expense } from "./types/types";
 import { ExpenseContext } from "./components/expense/ExpenseContext";
 
 function App() {
-  const [budget, setBudget] = useState(0);
   const [budgetItems, setBudgetItems] = useState<BudgetItem[]>([])
   
-
   const handleAddBugetItem = (item: BudgetItem) => {
     setBudgetItems(prevItems => [...prevItems, item]);
   };
@@ -37,11 +34,10 @@ function App() {
       <div className="col-12">
         <div className="row g-0">
           <div className="col-lg-6">
-            <AddTotalBudget onClick={setBudget}/>
             <AddBudgetItem onClick={handleAddBugetItem}/>
           </div>
           <div className="col-lg-6">
-            <Summary budget={budget} budgetItems={budgetItems}/>
+            <Summary budgetItems={budgetItems}/>
             <ExpenseContext.Provider value={{addExpense, budgetItems}}>
               <BudgetList budgetItems={budgetItems} />
             </ExpenseContext.Provider>

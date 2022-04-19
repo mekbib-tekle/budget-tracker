@@ -55,4 +55,5 @@
 .add-expense, .expense-item {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 15px;
 }
