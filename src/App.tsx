@@ -15,15 +15,14 @@ function App() {
   };
 
   const addExpense = (expense: Expense, budgetItemId: string) => {
-    const budgetItem = budgetItems.find((item) => item.uuid === budgetItemId);
-    if (!budgetItem || !budgetItem.expenses) {
-      return;
-    }
-
-    budgetItem.expenses.push(expense);
-
-    const filteredList = budgetItems.filter((item) => item.uuid !== budgetItemId);
-    setBudgetItems([...filteredList, budgetItem]);
+    setBudgetItems(prevItems => {
+      return prevItems.map((item) => {
+        if (item.uuid === budgetItemId) {
+          item.expenses.push(expense);
+        }
+        return item;
+      })
+    });
   };
 
   return (

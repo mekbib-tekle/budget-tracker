@@ -15,7 +15,7 @@ const AddExpense = ({budgetItemId}: PropType) => {
 		<div className="add-expense d-flex mb-4">
 			<input
 				type="text"
-				placeholder="Expense"
+				placeholder="Expense description"
 				onChange={(e) => setExpense(e.target.value) }
 			/>
 			<input
