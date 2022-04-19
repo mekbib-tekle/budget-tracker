@@ -1,6 +1,6 @@
 import { BudgetItem } from "../types/types";
 
-type propType = {
+type PropType = {
 	budgetItems: BudgetItem[]
 }
 
@@ -18,7 +18,7 @@ const getTotalBudget = (budgetItems: BudgetItem[]): number => {
 	}, 0);
 }
 
-const Summary = ({ budgetItems }: propType) => {
+const Summary: React.FC<PropType>  = ({ budgetItems }) => {
 	const expenses = getExpenses(budgetItems);
 	const budget = getTotalBudget(budgetItems);
 	const remaining = budget-expenses;

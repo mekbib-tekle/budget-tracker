@@ -5,8 +5,7 @@ type PropType = {
 	budgetItemId: string;
 }
 
-const AddExpense = ({budgetItemId}: PropType) => {
-
+const AddExpense: React.FC<PropType> = ({budgetItemId}) => {
   const { addExpense } = useContext(ExpenseContext);
 	const [expense, setExpense] = useState("");
 	const [amount, setAmount] = useState(0);

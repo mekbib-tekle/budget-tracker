@@ -6,7 +6,7 @@ type PropType = {
 	budgetItem: BudgetItem
 }
 
-const BudgetListItem = ({ budgetItem,  }: PropType) => {
+const BudgetListItem: React.FC<PropType> = ({ budgetItem,  }) => {
 
 	const [expand, setExpand] = useState(false);
 

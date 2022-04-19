@@ -4,7 +4,7 @@ type PropType = {
 	expenseItem: Expense;
 }
 
-const ExpenseItem = ({expenseItem}: PropType) => {
+const ExpenseItem: React.FC<PropType>  = ({expenseItem}) => {
 	return (
 		<div className="expense-item">
 			<div>{expenseItem.expense}</div>

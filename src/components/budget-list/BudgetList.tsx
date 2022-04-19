@@ -5,7 +5,7 @@ type PropTypes = {
 	budgetItems: BudgetItem[];
 }
 
-const BudgetList = ({ budgetItems }: PropTypes) => {
+const BudgetList: React.FC<PropTypes> = ({ budgetItems }) => {
 	return (
 		<div className="budget-list mt-4">
 			{ budgetItems && budgetItems.map((item) => {

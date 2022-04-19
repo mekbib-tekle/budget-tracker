@@ -6,7 +6,7 @@ type PropType = {
 	onClick: (budget: BudgetItem) => void;
 }
 
-const AddBudgetItem = ({ onClick }: PropType) => {
+const AddBudgetItem: React.FC<PropType>  = ({ onClick }) => {
 	const [description, setDescription] = useState("");
 	const [amount, setAmount] = useState(0);
 

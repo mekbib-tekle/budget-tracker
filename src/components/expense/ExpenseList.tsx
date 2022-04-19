@@ -6,7 +6,7 @@ type PropType = {
   budgetItem: BudgetItem;
 }
 
-const ExpenseList = ({budgetItem}: PropType) => {
+const ExpenseList: React.FC<PropType>  = ({budgetItem}) => {
   const expenseItems = budgetItem.expenses;
 
 	return (
