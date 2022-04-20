@@ -15,14 +15,13 @@ function App() {
   };
 
   const addExpense = (expense: Expense, budgetItemId: string) => {
-    setBudgetItems(prevItems => {
-      return prevItems.map((item) => {
-        if (item.uuid === budgetItemId) {
-          item.expenses.push(expense);
-        }
-        return item;
-      })
-    });
+    const updatedExpenses = budgetItems.map((item) => {
+      if (item.uuid === budgetItemId) {
+        item.expenses.push(expense);
+      }
+      return item;
+    })
+    setBudgetItems(updatedExpenses);
   };
 
   const deleteBudgetItem = (uuid: string) => {
